@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :bikes, dependent: :destroy
 
   # validations
-  
+  validates :username, presence: true, uniqueness: true
 end
