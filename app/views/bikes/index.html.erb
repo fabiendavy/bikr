@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6">
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control">
+          <p>Where ?</p>
+          <%= f.input :location, placeholder: "Anywhere", label: false %>
+          <div class="form-inline">
+            <%= f.input :start_date, as: :date, :input_html => { :value => Date.today}, label: false %>
+            <%= f.input :end_date, label: false, placeholder: "Check Out" %>
+          </div>
+            <%= f.submit "Search", class: "btn btn-primary mt-3" %>
+        </div>
+      <% end %>    
+    </div>
+  </div>
+</div>
+
+
