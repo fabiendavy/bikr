@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   # associations
   has_many :bookings, dependent: :destroy
+  has_many :bikes, dependent: :destroy
 
   # validations
+  
 end
