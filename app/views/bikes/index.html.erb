@@ -1,41 +1,43 @@
-<div class="container">
-  <div class="row mt-5">
+<div class="banner" height = 500px style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1471958680802-1345a694ba6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2264&q=80);">
+  <div class="row mt-2">
     <div class="col-6">
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
         <div class="search-form-control">
           <p>Where ?</p>
           <%= f.input :location, placeholder: "Anywhere", label: false %>
-          <div class="form-inline">
-            <%= f.input :start_date, as: :date, :input_html => { :value => Date.today}, label: false %>
-            <%= f.input :end_date, label: false, placeholder: "Check Out" %>
-          </div>
-            <%= f.submit "Search", class: "btn btn-primary mt-3" %>
-        </div>
-      <% end %>    
-    </div>
-  </div>
-
-  <div class="row">
-
-    <div class="cards">
-      <% @bikes.each do |bike| %>
-        <div class="card-trip">
-          <img src="https://source.unsplash.com/featured/?<%= bike.bike_type %>" />
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= bike.bike_type %></h2>
-              <p><%= bike.description.first(30) %>...</p>
+          <div class="form-row">
+            <div class="col">
+            <%= f.input :start_date, label: false, placeholder: "Rent Date" %>
             </div>
-            <h2 class="card-trip-pricing"><%= bike.price_per_day %> €/day</h2>
-            <img src="<%= " https://source.unsplash.com/featured/100x100/?people" %>" class="card-trip-user avatar-bordered" />
+            <div class="col">
+            <%= f.input :end_date, label: false, placeholder: "Return" %>
+            </div>
           </div>
+          <%= f.input :bike_type, placeholder: "Bike Type", label: false, collection: Bike::BIKE_TYPES, class: "select2" %>
+            <%= f.submit "Search", class: "btn btn-primary" %>
         </div>
-
       <% end %>
     </div>
+  </div>
+</div>
 
+<div class="row">
 
+  <div class="cards">
+    <% @bikes.each do |bike| %>
+      <div class="card-trip">
+        <img src="https://source.unsplash.com/featured/?<%= bike.bike_type %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= bike.bike_type %></h2>
+            <p><%= bike.description.first(30) %>...</p>
+          </div>
+          <h2 class="card-trip-pricing"><%= bike.price_per_day %> €/day</h2>
+          <img src="<%= " https://source.unsplash.com/featured/100x100/?people" %>" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
 
+    <% end %>
   </div>
 </div>
 
