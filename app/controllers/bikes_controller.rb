@@ -18,6 +18,10 @@ class BikesController < ApplicationController
   def show
   end
 
+  def new
+    @bike = Bike.new
+  end
+
   private
 
   def set_bike
