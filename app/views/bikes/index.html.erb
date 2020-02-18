@@ -1,4 +1,4 @@
-<div class="banner" height = 500px style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1471958680802-1345a694ba6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2264&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1471958680802-1345a694ba6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2264&q=80);">
   <div class="row mt-2">
     <div class="offset-xs-1 offset-md-2 col-xs-8 col-md-5 col-lg-3">
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
@@ -13,7 +13,7 @@
             </div>
           </div>
           <%= f.input :bike_type, placeholder: "Bike Type", label: false, collection: Bike::BIKE_TYPES, class: "select2" %>
-            <%= f.submit "Search", class: "btn btn-primary" %>
+            <%= f.submit "Search", class: "btn-index-search" %>
         </div>
       <% end %>
     </div>
@@ -25,21 +25,12 @@
 
   <div class="row justify-content-center">
 
-    <div class="cards">
-      <% @bikes.each do |bike| %>
-        <div class="card-trip">
-          <img src="https://source.unsplash.com/featured/?<%= bike.bike_type %>" />
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= bike.bike_type %></h2>
-              <p><%= bike.description.first(30) %>...</p>
-            </div>
-            <h2 class="card-trip-pricing"><%= bike.price_per_day %> €/day</h2>
-            <img src="<%= " https://source.unsplash.com/featured/100x100/?people" %>" class="card-trip-user avatar-bordered" />
-          </div>
+    <% categories = Bike::BIKE_TYPES.sample(4) %>
+      <% categories.each do |categorie| %>
+        <div class="card-category w-100" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/featured/?<%= categorie %>)">
+          <%= categorie %>
         </div>
-
       <% end %>
-    </div>
   </div>
 </div>
+
