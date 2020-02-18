@@ -22,7 +22,7 @@ puts "#{User.count} users created"
 users = [fab, ben, mat, nico]
 
 users.each do |user|
-  3.times do
+  15.times do
     Bike.create!(bike_type: Bike::BIKE_TYPES.sample, location: user.location, price_per_day: rand(10..60), description: Faker::Lorem.paragraph(sentence_count: 5), user: user)
   end
 end

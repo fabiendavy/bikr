@@ -1,23 +1,27 @@
-<div class="container">
+<div class="page-container">
+  <div class="row justify-content-around pt-5">
 
-  <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded" %>
-  <div class="div d-flex justify-content-between">
-    <h1><%= @bike.bike_type %></h1>
-    <h1><%= @bike.price_per_day %>€</h1>
+    <div class="col-sm-12 col-md-6">
+      <!-- <div class="w-75"> -->
+        <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded w-100" %>
+        <div class="div d-flex justify-content-between">
+          <h1><%= @bike.bike_type %></h1>
+          <h1><%= @bike.price_per_day %>€</h1>
+        </div>
+        <p><%= @bike.description %></p>
+      <!-- </div> -->
+    </div>
+
+
+
+    <div class="col-sm-12 col-md-4">
+      <%= simple_form_for [@user, @booking] do |f|  %>
+        <%= f.input :bike, input_html: { class: 'd-none', value: @bike.id }, label: false %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
   </div>
-
-  <p><%= @bike.description %></p>
-
-  <div class="div">
-    <!-- <h2><%= @bike.bike_type %></h2> -->
-
-    <%= simple_form_for [@user, @booking] do |f|  %>
-      <%= f.input :bike, input_html: { class: 'd-none', value: @bike.id }, label: false %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
-
-  </div>
-
 </div>

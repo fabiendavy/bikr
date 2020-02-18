@@ -3,3 +3,9 @@
 
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
+
+import { setBannerHeight } from './home.js'
+
+if (document.querySelector('.banner')) {
+  setBannerHeight();
+}
