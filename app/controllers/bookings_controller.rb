@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    set_booking
   end
 
   def create
