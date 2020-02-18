@@ -41,7 +41,7 @@ class BikesController < ApplicationController
   def edit
     authorize @bike
   end
-
+  
   def update
     if @bike.update(bike_params)
       redirect_to bike_path(@bike)
@@ -49,8 +49,9 @@ class BikesController < ApplicationController
       render :edit
     end
   end
-
+  
   def destroy
+    authorize @bike
   end
 
   private
