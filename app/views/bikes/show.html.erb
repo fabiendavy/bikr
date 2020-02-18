@@ -1,8 +1,23 @@
-<h1><%= @bike.bike_type %></h1>
+<div class="container">
 
-<%= simple_form_for [@user, @booking] do |f|  %>
-  <%= f.input :bike, input_html: { class: 'd-none', value: @bike.id }, label: false %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+  <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded" %>
+  <div class="div d-flex justify-content-between">
+    <h1><%= @bike.bike_type %></h1>
+    <h1><%= @bike.price_per_day %>€</h1>
+  </div>
+
+  <p><%= @bike.description %></p>
+
+  <div class="div">
+    <!-- <h2><%= @bike.bike_type %></h2> -->
+
+    <%= simple_form_for [@user, @booking] do |f|  %>
+      <%= f.input :bike, input_html: { class: 'd-none', value: @bike.id }, label: false %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+
+</div>
