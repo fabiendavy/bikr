@@ -1,14 +1,16 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :edit, :destroy]
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
   end
 
   def show
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @bike = Bike.find(params[:booking][:bike])
     @booking.user = current_user
     @booking.total_price = @bike.price_per_day * (@booking.end_date - @booking.start_date)
@@ -22,9 +24,11 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    authorize @booking
   end
-
+  
   def destroy
+    authorize @booking
   end
 
   def update
