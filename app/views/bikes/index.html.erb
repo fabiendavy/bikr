@@ -14,6 +14,29 @@
       <% end %>    
     </div>
   </div>
+
+  <div class="row">
+
+    <div class="cards">
+      <% @bikes.each do |bike| %>
+        <div class="card-trip">
+          <img src="https://source.unsplash.com/featured/?<%= bike.bike_type %>" />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= bike.bike_type %></h2>
+              <p><%= bike.description.first(30) %>...</p>
+            </div>
+            <h2 class="card-trip-pricing"><%= bike.price_per_day %> €/day</h2>
+            <img src="<%= " https://source.unsplash.com/featured/100x100/?people" %>" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
+
+
+  </div>
 </div>
 
 
