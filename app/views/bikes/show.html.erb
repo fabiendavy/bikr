@@ -1,1 +1,8 @@
 <h1><%= @bike.bike_type %></h1>
+
+<%= simple_form_for [@user, @booking] do |f|  %>
+  <%= f.input :bike, input_html: { class: 'd-none', value: @bike.id }, label: false %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
