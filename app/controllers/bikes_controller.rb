@@ -1,4 +1,6 @@
 class BikesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   before_action :set_bike, only: [:show, :edit, :destroy, :update]
   def index
     @bikes = Bike.all
@@ -23,7 +25,7 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
-    if @bike.save 
+    if @bike.save
       redirect_to bike_path(@bike)
     else
       render :new
