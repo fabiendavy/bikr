@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @bike = Bike.find(params[:bike_id])
+    @bike = Bike.find(params[:booking][:bike])
     @booking.user = current_user
     @booking.total_price = @bike.price_per_day * (@booking.end_date - @booking.start_date)
     @booking.bike = @bike
@@ -42,6 +42,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user, :bike, :start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
