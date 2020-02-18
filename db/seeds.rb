@@ -14,10 +14,12 @@ Booking.destroy_all
 
 fab = User.create!(email: "davyfabien@gmail.com", password: "password", username: "bikerfab", gender: "male", location: "142 rue Gambetta, 92150 Suresnes")
 ben = User.create!(email: "benjamin.teste@gmail.com", password: "password", username: "bikerben", location: "8 rue des Frères Chausson, 92600 Asnières")
-matt = User.create!(email: "mguillermit@gmail.com", password: "password", username: "bikermat", gender: "male", location: "88 rue Bonaparte, 75006 Paris")
+mat = User.create!(email: "mguillermit@gmail.com", password: "password", username: "bikermat", gender: "male", location: "88 rue Bonaparte, 75006 Paris")
 nico = User.create!(email: "nicolas.lebot@yahoo.fr", password: "password", username: "bikernico", location: "60 rue La Condamine, 75017 Paris")
 
-users = [fab, ben, matt, nico]
+puts "#{User.count} users created"
+
+users = [fab, ben, mat, nico]
 
 users.each do |user|
   3.times do
@@ -25,6 +27,11 @@ users.each do |user|
   end
 end
 
-booking1 = Booking.new(user_id: 1, bike_id: 1, start_date: Date.today(), end_date: Date.today() +  5)
-booking2 = Booking.new(user_id: 2, bike_id: 6, start_date: Date.today() + 1, end_date: Date.today() +  4)
-booking3 = Booking.new(user_id: 3, bike_id: 9, start_date: Date.today() + 2, end_date: Date.today() +  5)
+puts "#{Bike.count} bikes created"
+
+booking1 = Booking.create!(user_id: 1, bike_id: 1, start_date: Date.today(), end_date: Date.today() +  5)
+booking2 = Booking.create!(user_id: 2, bike_id: 3, start_date: Date.today() + 1, end_date: Date.today() +  4)
+booking3 = Booking.create!(user_id: 3, bike_id: 6, start_date: Date.today() + 2, end_date: Date.today() +  5)
+booking4 = Booking.create!(user_id: 4, bike_id: 9, start_date: Date.today() + 2, end_date: Date.today() +  5)
+
+puts "#{Booking.count} booking created"
