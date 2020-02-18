@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   def edit
     authorize @booking
   end
-  
+
   def destroy
     authorize @booking
   end
