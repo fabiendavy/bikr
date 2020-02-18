@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-6">
+      <h1 class="my-3 text-center">Add a new bike </h1>
+      <%= simple_form_for(@bike) do |f| %>
+        <p>What kind of bike do you have ?</p>
+        <%= f.input :bike_type, label: false, collection: Bike::BIKE_TYPES, class: "select2" %>
+        <%= f.input :location, label: false, placeholder: "City of your bike" %>
+        <%= f.input :price_per_day, label: false, placeholder: "€/day" %>
+        <%= f.input :description, label: false, placeholder: "Describe your bike" %>
+        <%= f.submit "Add my bike", class: "btn btn-new-flat" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.btn-new-flat {
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: $light-gray;
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 50px;
+  transition: 0.2;
+  &:hover {
+    background-color: $light-gray;
+    border: 1px solid $blue;
+    color: $blue;
+  }
+}
