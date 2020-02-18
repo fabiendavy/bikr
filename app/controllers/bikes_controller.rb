@@ -1,9 +1,9 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-
   before_action :set_bike, only: [:show, :edit, :destroy, :update]
+
   def index
-    @bikes = Bike.all
+    @bikes = policy_scope(Bike)
     @query = params[:search]
 
     if !@query.nil?
@@ -17,12 +17,14 @@ class BikesController < ApplicationController
   end
 
   def show
+    authorize @bike
     @booking = Booking.new
     @user = current_user
   end
 
   def new
     @bike = Bike.new
+    authorize @bike
   end
 
   def create
@@ -37,6 +39,7 @@ class BikesController < ApplicationController
   end
 
   def edit
+    authorize @bike
   end
 
   def update
