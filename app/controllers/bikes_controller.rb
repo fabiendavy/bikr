@@ -1,4 +1,5 @@
 class BikesController < ApplicationController
+  before_action :set_bike, only: [:show]
   def index
     @bikes = Bike.all
     @query = params[:search]
@@ -11,12 +12,15 @@ class BikesController < ApplicationController
     else
       render :index
     end
-    # @query = params[:search]
-    # if !@query.nil?
-    #   @name = @query[:query]
-    #   @cocktails = Cocktail.select do |cocktail|
-    #     cocktail.name.include?(@name)
-    #   end
-    # end
+
+  end
+
+  def show
+  end
+
+  private
+
+  def set_bike
+    @bike = Bike.find(params[:id])
   end
 end
