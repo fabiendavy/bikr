@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show]
+  before_action :set_bike, only: [:show, :edit, :destroy, :update]
   def index
     @bikes = Bike.all
     @query = params[:search]
@@ -12,7 +12,6 @@ class BikesController < ApplicationController
     else
       render :index
     end
-
   end
 
   def show
@@ -22,9 +21,36 @@ class BikesController < ApplicationController
     @bike = Bike.new
   end
 
+  def create
+    @bike = Bike.new(bike_params)
+    if @bike.save 
+      redirect_to bike_path(@bike)
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @bike.update(bike_params)
+      redirect_to bike_path(@bike)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
   private
 
   def set_bike
     @bike = Bike.find(params[:id])
+  end
+
+  def bike_params
+    params.require(:bike).permit(:bike_type, :description, :location, :price_per_day)
   end
 end
