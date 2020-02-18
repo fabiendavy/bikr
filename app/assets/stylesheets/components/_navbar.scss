@@ -10,3 +10,18 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.add-bike-btn {
+  margin-right: 50px;
+  background-color: #EA362B;
+  border: 1px solid #EA362B;
+  color: white!important;
+  padding: 8px;
+  border-radius: 4px;
+  transition: 0.3s;
+  &:hover {
+    background-color: white;
+    border: 1px solid #EA362B;
+    color: #EA362B!important;
+  }
+}
