@@ -4,13 +4,10 @@ class BikesController < ApplicationController
 
   def index
     @bikes = policy_scope(Bike)
-    @query = params[:search]
 
-    if !@query.nil?
-      @location = @query[:location]
-      @available_bikes = Bike.select do |bike|
-        bike.location.include?(@location)
-      end
+    if params[:search].present? && params[:search][:location] != "" && params[:search][:bike_type] != ""
+      @location = params[:search][:location]
+      redirect_to results_bikes_path
     else
       render :index
     end
