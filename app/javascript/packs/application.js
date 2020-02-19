@@ -22,17 +22,10 @@ require("channels")
 // ----------------------------------------------------
 
 import "bootstrap";
-
 import { initMapbox } from '../plugins/init_mapbox';
-
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-})
-
 import { initAutocomplete } from "../plugins/init_autocomplete"
 
 document.addEventListener('turbolinks:load', () => {
-  if (document.getElementById('search_location')) {
-    initAutocomplete();
-  }
+  initMapbox();
+  initAutocomplete();
 });
