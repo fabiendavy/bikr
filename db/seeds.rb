@@ -22,16 +22,14 @@ puts "#{User.count} users created"
 users = [fab, ben, mat, nico]
 
 users.each do |user|
-  15.times do
-    Bike.create!(bike_type: Bike::BIKE_TYPES.sample, location: user.location, price_per_day: rand(10..60), description: Faker::Lorem.paragraph(sentence_count: 5), user: user)
-  end
+  Bike.create!(bike_type: Bike::BIKE_TYPES.sample, location: user.location, price_per_day: rand(10..60), description: Faker::Lorem.paragraph(sentence_count: 5), user: user)
 end
 
 puts "#{Bike.count} bikes created"
 
-booking1 = Booking.create!(user_id: 1, bike_id: 1, start_date: Date.today(), end_date: Date.today() +  5)
-booking2 = Booking.create!(user_id: 2, bike_id: 3, start_date: Date.today() + 1, end_date: Date.today() +  4)
-booking3 = Booking.create!(user_id: 3, bike_id: 6, start_date: Date.today() + 2, end_date: Date.today() +  5)
-booking4 = Booking.create!(user_id: 4, bike_id: 9, start_date: Date.today() + 2, end_date: Date.today() +  5)
+# booking1 = Booking.create!(user_id: 1, bike_id: 1, start_date: Date.today(), end_date: Date.today() +  5)
+# booking2 = Booking.create!(user_id: 2, bike_id: 3, start_date: Date.today() + 1, end_date: Date.today() +  4)
+# booking3 = Booking.create!(user_id: 3, bike_id: 6, start_date: Date.today() + 2, end_date: Date.today() +  5)
+# booking4 = Booking.create!(user_id: 4, bike_id: 9, start_date: Date.today() + 2, end_date: Date.today() +  5)
 
 puts "#{Booking.count} booking created"
