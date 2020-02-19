@@ -7,7 +7,7 @@ class BikesController < ApplicationController
 
     if params[:search].present? && params[:search][:location] != "" && params[:search][:bike_type] != ""
       @location = params[:search][:location]
-      redirect_to results_bikes_path
+      redirect_to results_bikes_path(params: { location: params[:search][:location] })
     else
       render :index
     end
@@ -15,6 +15,8 @@ class BikesController < ApplicationController
 
   def results
     @bikes = policy_scope(Bike)
+    @location = params[:location]
+    raise
   end
 
   def show
@@ -42,7 +44,7 @@ class BikesController < ApplicationController
   def edit
     authorize @bike
   end
-  
+
   def update
     if @bike.update(bike_params)
       redirect_to bike_path(@bike)
@@ -50,7 +52,7 @@ class BikesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     authorize @bike
   end
