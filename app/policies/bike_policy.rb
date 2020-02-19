@@ -7,6 +7,10 @@ class BikePolicy < ApplicationPolicy
     true
   end
 
+  def results?
+    true
+  end
+
   def update?
     record.user == user
   end
