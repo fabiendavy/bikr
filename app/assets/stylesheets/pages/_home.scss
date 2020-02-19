@@ -8,9 +8,9 @@
 }
 
 .btn-index-search {
-  background-color: transparent;
+  background-color: rgba(255,255,255,0.9);
   border: 1px solid rgb(161, 161, 161);
-  color: rgb(161, 161, 161);
+  color: rgb(100, 100, 100);
   border-radius: 50px;
   padding: 10px 20px;
   &:hover {
@@ -36,3 +36,16 @@
   margin-bottom: 50px;
 }
 
+h1 {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-weight: bolder;
+  font-size: 44px;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-weight: light;
+  font-size: 24px;
+}
