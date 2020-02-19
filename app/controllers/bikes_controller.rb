@@ -7,6 +7,7 @@ class BikesController < ApplicationController
     @query = params[:search]
 
     if !@query.nil?
+      raise
       @location = @query[:location]
       @available_bikes = Bike.select do |bike|
         bike.location.include?(@location)
