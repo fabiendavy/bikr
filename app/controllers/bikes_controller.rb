@@ -17,7 +17,16 @@ class BikesController < ApplicationController
   end
 
   def results
+    @bikes = Bike.geocoded
     @bikes = policy_scope(Bike)
+
+    @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bike: bike })
+      }
+    end
   end
 
   def show
@@ -45,7 +54,7 @@ class BikesController < ApplicationController
   def edit
     authorize @bike
   end
-  
+
   def update
     if @bike.update(bike_params)
       redirect_to bike_path(@bike)
@@ -53,7 +62,7 @@ class BikesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     authorize @bike
   end
