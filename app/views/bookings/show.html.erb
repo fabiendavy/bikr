@@ -1,11 +1,11 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1471958680802-1345a694ba6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2264&q=80);">
   <div class="row">
     <div class="offset-sm-1 offset-md-2 col-sm-10 col-md-5 col-lg-3 offset-sm-1">
-    <h2 class='text-light'> Booking <%= @booking.id %></h2>
+<!--     <h2 class='text-light'> Booking <%= @booking.id %></h2> -->
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Bike : Bike_type</h5>
-          <h6 class="card-subtitle mb-4 text-muted">Total price : <%= @booking.total_price %></h6>
+          <h5 class="card-title">Congratulations 🚲🎉</h5>
+          <h6 class="card-subtitle mb-4 text-muted">Total price : <%= @booking.total_price %>€</h6>
           <p class="card-text">From : <%= @booking.start_date %></p>
           <p class="card-text">To : <%= @booking.end_date %></p>
           <%= link_to "← Back", user_bookings_path(current_user), class: "card-link" %>
