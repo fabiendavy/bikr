@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   
   root to: 'bikes#index'
 
-  resources :bikes
+  resources :bikes do 
+    collection do
+      get :results
+    end
+  end
   resources :users do
     resources :bookings, only: [:index, :create]
   end
