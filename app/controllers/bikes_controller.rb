@@ -4,21 +4,17 @@ class BikesController < ApplicationController
 
   def index
     @bikes = policy_scope(Bike)
-    @query = params[:search]
 
-    if !@query.nil?
-      @location = @query[:location]
-      @available_bikes = Bike.select do |bike|
-        bike.location.include?(@location)
-      end
+    if params[:search].present? && params[:search][:location] != "" && params[:search][:bike_type] != ""
+      redirect_to results_bikes_path(params: { location: params[:search][:location] })
     else
       render :index
     end
   end
 
   def results
-    @query = params[:query] || "Paris"
-    @bikes = policy_scope(Bike).geocoded.near(@query, 10)
+    @location = params[:location]
+    @bikes = policy_scope(Bike).geocoded.near(@location, 15)
 
     @markers = @bikes.map do |bike|
       {
