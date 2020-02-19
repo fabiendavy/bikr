@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @bike = Bike.find(params[:booking][:bike])
     @booking.user = current_user
-    @booking.total_price = @bike.price_per_day * (@booking.end_date - @booking.start_date)
+    @booking.total_price = @bike.price_per_day * (@booking.end_date - @booking.start_date + 1)
     @booking.bike = @bike
 
     if @booking.save
