@@ -4,13 +4,9 @@ class BikesController < ApplicationController
 
   def index
     @bikes = policy_scope(Bike)
-    @query = params[:search]
 
-    if !@query.nil?
-      @location = @query[:location]
-      @available_bikes = Bike.select do |bike|
-        bike.location.include?(@location)
-      end
+    if params[:search].present? && params[:search][:location] != "" && params[:search][:bike_type] != ""
+      redirect_to results_bikes_path(params: { location: params[:search][:location] })
     else
       render :index
     end
@@ -18,6 +14,8 @@ class BikesController < ApplicationController
 
   def results
     @bikes = policy_scope(Bike)
+    @location = params[:location]
+    raise
   end
 
   def show
@@ -45,7 +43,7 @@ class BikesController < ApplicationController
   def edit
     authorize @bike
   end
-  
+
   def update
     if @bike.update(bike_params)
       redirect_to bike_path(@bike)
@@ -53,7 +51,7 @@ class BikesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     authorize @bike
   end
