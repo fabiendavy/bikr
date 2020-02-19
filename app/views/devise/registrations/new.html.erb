@@ -10,22 +10,30 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
+                        label: false,
+                        placeholder: "E-mail",
                         input_html: { autocomplete: "email" }%>
             <%= f.input :username,
                         required: true,
                         autofocus: true,
+                        label: false,
+                        placeholder: "Username",
                         input_html: { autocomplete: "username" }%>
             <%= f.input :password,
                         required: true,
+                        label: false,
+                        placeholder: "Password",
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
                         required: true,
+                        label: false,
+                        placeholder: "Confirm password",
                         input_html: { autocomplete: "new-password" } %>
           </div>
 
-          <div class="form-actions btn btn-primary">
-            <%= f.button :submit, "Sign up" %>
+          <div class="pb-3">
+            <%= f.button :submit, "Sign up", class: "btn-index-search"  %>
           </div>
         <% end %>
 
