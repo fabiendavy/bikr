@@ -5,7 +5,7 @@ class BikesController < ApplicationController
   def index
     @bikes = policy_scope(Bike)
 
-    if params[:search].present? && params[:search][:location] != "" && params[:search][:bike_type] != ""
+    if params[:search].present? && params[:search][:location] != ""
       @location = params[:search][:location]
       redirect_to results_bikes_path(params: { location: params[:search][:location] })
     else
