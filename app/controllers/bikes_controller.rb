@@ -14,9 +14,16 @@ class BikesController < ApplicationController
   end
 
   def results
-    @bikes = policy_scope(Bike)
     @location = params[:location]
-    raise
+    @bikes = policy_scope(Bike).geocoded.near(@location, 15)
+
+    @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bike: bike })
+      }
+    end
   end
 
   def show
