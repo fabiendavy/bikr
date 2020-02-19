@@ -7,7 +7,6 @@ class BikesController < ApplicationController
     @query = params[:search]
 
     if !@query.nil?
-      raise
       @location = @query[:location]
       @available_bikes = Bike.select do |bike|
         bike.location.include?(@location)
@@ -18,8 +17,8 @@ class BikesController < ApplicationController
   end
 
   def results
-    @bikes = Bike.geocoded
-    @bikes = policy_scope(Bike)
+    @query = params[:query] || "Paris"
+    @bikes = policy_scope(Bike).geocoded.near(@query, 10)
 
     @markers = @bikes.map do |bike|
       {
