@@ -11,3 +11,7 @@ document.addEventListener('turbolinks:load', () => {
     setBannerHeight();
   }
 });
+if (document.querySelector('.banner')) {
+  setBannerHeight();
+}
+w
