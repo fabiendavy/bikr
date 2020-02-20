@@ -7,9 +7,9 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-// @import 'mapbox-gl/dist/mapbox-gl.css';
+@import "bikes/index";
+@import "bookings/index";

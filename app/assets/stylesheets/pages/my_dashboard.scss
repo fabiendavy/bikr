@@ -1,0 +1,62 @@
+.dashboard {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  h3 {
+    margin: 24px 0;
+  }
+  h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .dashboard-cards {
+    width: 100%;
+  }
+  .dashboard-card {
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 24px;
+    margin-bottom: 24px;
+    padding: 32px;
+  }
+  .booking-item, .bike-item {
+    background-color: #EEF2F5;
+    padding: 16px;
+    font-weight: 400;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  .head-booking, .body-booking {
+    width: 16%;
+  }
+  .headers {
+    background-color: rgb(245, 238, 238);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  .body-booking {
+    font-weight: 400;
+  }
+  .head-bike, .body-bike {
+    width: 16%;
+  }
+  .head-bike-location, .body-bike-location {
+    width: 20%;
+  }
+  .description {
+    border-top: 1px solid rgba(175, 175, 175, 0.5);
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+  .head-description {
+    font-weight: 700;
+  }
+  .icon {
+    color: grey;
+    margin-right: 8px;
+  }
+  a {
+    color: inherit;
+    font-weight: 500;;
+  }
+}

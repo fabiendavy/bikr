@@ -29,6 +29,8 @@ class BookingsController < ApplicationController
 
   def destroy
     authorize @booking
+    @booking.destroy
+    redirect_to my_dashboard_path
   end
 
   def update

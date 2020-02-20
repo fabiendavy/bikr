@@ -29,10 +29,13 @@ import { showSliderValue } from "../plugins/init_slider"
 
 
 
+import { initAutocomplete } from "../plugins/init_autocomplete";
+import { initFlatpickr } from "../plugins/init_flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   showSliderValue();
+  initFlatpickr();
 });
 
