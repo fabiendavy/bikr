@@ -1,0 +1,41 @@
+.profile-card {
+  width: 100vh;
+  background-color: #ffffff;
+  border-radius: 48px;
+  margin-top: 50px;
+  padding: 0 48px 64px 48px;
+
+  h1 {
+    margin-left: 30px;
+  }
+
+  p {
+    margin-bottom: 8px;
+    margin-top: 24px;
+  }
+
+  #presentation-profile {
+    margin: 64px;
+    display: flex;
+    align-items: center;
+  }
+
+  .square {
+    background-image: url("https://source.unsplash.com/featured/?people");
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .user-wrap {
+    width: 100%;
+  }
+
+  .user-item {
+    background-color: #F4F4F4;
+    padding: 16px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid rgb(233, 233, 233);
+  }
+}

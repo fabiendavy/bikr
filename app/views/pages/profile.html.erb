@@ -1,10 +1,33 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-6 profile-card">
-      <div id="presentation">
+    <div class="col-sm-10 col-md-8 col-lg-6 profile-card">
+      <div id="presentation-profile">
         <div class="square"></div>
         <h1><%= current_user.username %></h1>
+      </div>
 
+      <div class="user-wrap">
+        <div class="d-flex form-inline">
+          <div class="d-flex flex-column flex-grow-1">
+            <p>Email :</p>
+            <div class="user-item"><%= current_user.email %></div>
+          </div>
+
+          <div class="d-flex flex-column flex-grow-1 ml-4">
+            <p>Password :</p>
+            <div class="user-item">••••••••••</div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column">
+          <p>Gender :</p>
+          <div class="user-item"><%= current_user.gender %></div>
+        </div>
+
+        <div class="d-flex flex-column">
+          <p>Address :</p>
+          <div class="user-item"><%= current_user.location %></div>
+        </div>
       </div>
     </div>
   </div>
