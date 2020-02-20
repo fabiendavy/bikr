@@ -1,9 +1,19 @@
 class Bike < ApplicationRecord
-  # associations
+    # associations
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_one_attached :photo
-
+  
+  include PgSearch::Model
+  pg_search_scope :bike_search,
+  against: [ :location, :bike_type, :size, :electric ],
+  associated_against: {
+    user: [ :username ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+  
   geocoded_by :location
 
   # BIKE_TYPES = ["Mountain", "Road", "Time Trial", "Gravel Cyclocross", "BMX", "Single Speed", "Cruiser", "Urban", "Hybrid", "Touring", "Other"]
