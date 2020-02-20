@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   
   root to: 'bikes#index'
 
-  resources :bikes do 
+  resources :bikes do
+    resources :bookings, only: [:create]
     collection do
       get :results
     end
   end
-  resources :users do
-    resources :bookings, only: [:index, :create]
-  end
-  resources :bookings, only: [:show, :edit, :destroy, :update]
+
+  resources :bookings, only: [:show, :edit, :destroy, :update, :index]
 end
