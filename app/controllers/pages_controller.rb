@@ -3,4 +3,7 @@ class PagesController < ApplicationController
     @bookings = Booking.where(user: current_user)
     @bikes = Bike.where(user: current_user)
   end
+
+  def profile
+  end
 end
