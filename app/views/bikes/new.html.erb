@@ -1,16 +1,31 @@
 <div class="container">
   <div class="row justify-content-center mt-4 form-card back">
-    <div class="col-6">
-      <h1 class="my-3 text-center">Add a new bike </h1>
-      <%= simple_form_for(@bike) do |f| %>
-        <p>What kind of bike do you have ?</p>
-        <%= f.input :bike_type, label: false, collection: Bike::BIKE_TYPES, class: "select2" %>
-        <%= f.input :location, label: false, placeholder: "Where is your bike?" %>
-        <%= f.input :price_per_day, label: false, placeholder: "€/day" %>
-        <%= f.input :description, label: false, placeholder: "Please describe your bike" %>
-        <%= f.input :photo, as: :file, label: "Add a picture" %>
-        <%= f.submit "Add my bike", class: "btn btn-new-flat" %>
+    <div class="col-7 bg-white p-3" id="white-container-new-bike">
+      <h1 class="my-3 raleway-bold">Add a new bike </h1>
+        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+          <div class="search-form-control text-secondary raleway-light">
+            <p>What kind of bike do you have ?</p>
+            <%= f.input :bike_type, label: false, collection: Bike::BIKE_TYPES, class: "select2", as: :radio_buttons, wrapper: :custom_collection_inline %>
+            <%= f.input :location, placeholder: "Anywhere", label: false, id:'location_field' %>
+              <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
+              <p id="demo">€/day</p>
+              <div class="form-row">
+                <div class="col">
+                  <%= f.input :size, prompt: "Size", label: false, collection: Bike::BIKE_SIZE, class: "select2" %>
+                </div>
+                <div class="col">
+                  <%= f.input :Power, prompt: "Power", label: false, collection: Bike::BIKE_POWER, class: "select2" %>
+                </div>
+                <div class="col">
+                  <%= f.input :Gender, prompt: "Gender", label: false, collection: Bike::BIKE_GENDER, class: "select2" %>
+                </div>
+              </div>
+                  <%= f.input :description, label: false, placeholder: "Describe your bike", as: :text %>
+              <%= f.submit "Add my bike", class: "btn btn-new-flat" %>
+          </div>
       <% end %>
     </div>
   </div>
 </div>
+
+
