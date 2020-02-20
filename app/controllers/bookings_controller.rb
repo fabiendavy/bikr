@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :edit, :destroy]
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).where(user: current_user)
   end
 
   def show
@@ -11,11 +11,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
-    @bike = Bike.find(params[:booking][:bike])
+    @bike = Bike.find(params[:bike_id])
+    @booking.bike = @bike
     @booking.user = current_user
     @booking.total_price = @bike.price_per_day * (@booking.end_date - @booking.start_date + 1)
-    @booking.bike = @bike
-
+    
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -46,6 +46,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :bike_id)
   end
 end
