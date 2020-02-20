@@ -5,6 +5,10 @@ const initAutocomplete = () => {
   if (locationSearch) {
     places({ container: locationSearch });
   }
+  const bikePlace = document.getElementById('bike_location');
+  if (bikePlace) {
+    places({ container: bikePlace });
+  }
 };
 
 export { initAutocomplete };

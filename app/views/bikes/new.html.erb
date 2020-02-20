@@ -1,26 +1,35 @@
 <div class="container">
   <div class="row justify-content-center mt-4 form-card back">
-    <div class="col-7 bg-white p-3" id="white-container-new-bike">
-      <h1 class="my-3 raleway-bold">Add a new bike </h1>
-        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="col-8 bg-white p-5" id="white-container-new-bike">
+      <h1 class="raleway-bold">Add a new bike </h1>
+        <%= simple_form_for @bike do |f| %>
           <div class="search-form-control text-secondary raleway-light">
             <p>What kind of bike do you have ?</p>
+            <div class="mb-4">
             <%= f.input :bike_type, label: false, collection: Bike::BIKE_TYPES, class: "select2", as: :radio_buttons, wrapper: :custom_collection_inline %>
-            <%= f.input :location, placeholder: "Anywhere", label: false, id:'location_field' %>
-              <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
-              <p id="demo">€/day</p>
-              <div class="form-row">
+            </div>
+            <div class="mb-4">
+            <%= f.input :location, placeholder: "Anywhere", label: false %>
+            </div>
+              <input type="range" min="1" max="100" value="1" class="slider mb-3" id="myRange">
+            <div class="d-flex mb-1">
+              <p id="demo"></p>€/day
+              <%= f.input :price_per_day, as: :hidden %>
+            </div>
+              <div class="form-row mb-4">
                 <div class="col">
                   <%= f.input :size, prompt: "Size", label: false, collection: Bike::BIKE_SIZE, class: "select2" %>
                 </div>
                 <div class="col">
-                  <%= f.input :Power, prompt: "Power", label: false, collection: Bike::BIKE_POWER, class: "select2" %>
+                  <%= f.input :electric, prompt: "Power", label: false, collection: Bike::BIKE_POWER, class: "select2" %>
                 </div>
                 <div class="col">
-                  <%= f.input :Gender, prompt: "Gender", label: false, collection: Bike::BIKE_GENDER, class: "select2" %>
+                  <%= f.input :gender, prompt: "Gender", label: false, collection: Bike::BIKE_GENDER, class: "select2" %>
                 </div>
               </div>
+              <div class="mb-4">
                   <%= f.input :description, label: false, placeholder: "Describe your bike", as: :text %>
+              </div>
               <%= f.submit "Add my bike", class: "red-btn" %>
           </div>
       <% end %>
