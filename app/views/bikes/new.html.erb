@@ -8,6 +8,7 @@
         <%= f.input :location, label: false, placeholder: "Where is your bike?" %>
         <%= f.input :price_per_day, label: false, placeholder: "€/day" %>
         <%= f.input :description, label: false, placeholder: "Please describe your bike" %>
+        <%= f.input :photo, as: :file, label: "Add a picture" %>
         <%= f.submit "Add my bike", class: "btn btn-new-flat" %>
       <% end %>
     </div>
