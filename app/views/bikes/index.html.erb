@@ -10,10 +10,10 @@
             <%= f.input :location, placeholder: "Anywhere", label: false, id:'location_field' %>
             <div class="form-row">
               <div class="col">
-              <%= f.input :start_date, label: false, placeholder: "Rent Date" %>
+                <%= f.input :start_date, label: false, placeholder: "rent date", as: :string, input_html: {class: "datepicker"} %>
               </div>
               <div class="col">
-              <%= f.input :end_date, label: false, placeholder: "Return" %>
+                <%= f.input :end_date, label: false, placeholder: "return date", as: :string, input_html: {class: "datepicker"} %>
               </div>
             </div>
             <%= f.input :bike_type, prompt: "Bike Type", label: false, collection: Bike::BIKE_TYPES, class: "select2" %>
