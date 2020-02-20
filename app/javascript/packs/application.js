@@ -28,8 +28,13 @@ import { showSliderValue } from "../plugins/init_slider"
 import { initFlatpickr } from "../plugins/init_flatpickr";
 import { myModal } from "../components/openmodalbooking";
 
+
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
+  const mapElement = document.getElementById('map');
+
+  if (mapElement !== null) {
+    initMapbox();
+  }
   initAutocomplete();
   showSliderValue();
   initFlatpickr();
