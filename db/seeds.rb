@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+ # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -22,7 +22,7 @@ puts "#{User.count} users created"
 users = [fab, ben, mat, nico]
 
 users.each do |user|
-  Bike.create!(bike_type: Bike::BIKE_TYPES.sample, location: user.location, price_per_day: rand(10..60), description: Faker::Lorem.paragraph(sentence_count: 5), user: user)
+  bike = Bike.create!(bike_type: Bike::BIKE_TYPES.sample, location: user.location, price_per_day: rand(10..60), description: Faker::Lorem.paragraph(sentence_count: 5), user: user)
 end
 
 puts "#{Bike.count} bikes created"
