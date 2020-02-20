@@ -14,7 +14,8 @@
         <h1><%= @bike.price_per_day %>€</h1>
       </div>
       <p><%= @bike.description %></p>
-      <%= simple_form_for([@bike, @booking]) do |f|  %>
+      <p class="attribute"><%= @bike.electric %></p><p class="attribute"><%= @bike.gender %></p><p class="attribute"><%= @bike.size %></p>
+      <%= simple_form_for([@bike, @booking], remote: true) do |f|  %>
       <div class="form-row">
         <div class="col">
           <%= f.input :start_date, label: false, placeholder: "rent date", as: :string, input_html: {class: "datepicker"} %>
@@ -23,7 +24,7 @@
           <%= f.input :end_date, label: false, placeholder: "return date", as: :string, input_html: {class: "datepicker"} %>
         </div>
         <div class="col">
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class: "btn add-bike-btn", id: "booking_button" %>
         </div>
       </div>
       <% end %>
@@ -31,3 +32,24 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="booking_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Congratulations 🚲🎉</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="booking_modal_body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@
         <h3 id="catch">where is your next ride?</h3>
         <%= simple_form_for :search, url: root_path, method: :get do |f| %>
           <div class="search-form-control">
-            <%= f.input :location, placeholder: "Anywhere", label: false, id:'locate-me' %>
+            <%= f.input :location, placeholder: "Anywhere", label: false, id:'location_field' %>
             <div class="form-row">
               <div class="col">
               <%= f.input :start_date, label: false, placeholder: "Rent Date" %>
@@ -16,7 +16,7 @@
               <%= f.input :end_date, label: false, placeholder: "Return" %>
               </div>
             </div>
-            <%= f.input :bike_type, placeholder: "Bike Type", label: false, collection: Bike::BIKE_TYPES, class: "select2" %>
+            <%= f.input :bike_type, prompt: "Bike Type", label: false, collection: Bike::BIKE_TYPES, class: "select2" %>
               <%= f.submit "Search", class: "btn-index-search" %>
           </div>
         <% end %>

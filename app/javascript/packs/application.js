@@ -23,11 +23,16 @@ require("channels")
 
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
-import { initAutocomplete } from "../plugins/init_autocomplete";
+import { initAutocomplete } from "../plugins/init_autocomplete"
+import { showSliderValue } from "../plugins/init_slider"
 import { initFlatpickr } from "../plugins/init_flatpickr";
+import { myModal } from "../components/openmodalbooking";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+  showSliderValue();
   initFlatpickr();
+  myModal();
 });
+
