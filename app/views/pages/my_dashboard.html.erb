@@ -1,0 +1,74 @@
+<div class="container dashboard">
+  <div class="row justify-content-center">
+    <div class="col-10">
+    
+    <h3>Dashboard de : <%= current_user.username %></h3>
+
+    <div class="dashboard-cards d-flex flex-column">
+      <div class="dashboard-card">
+        <h4>Your bookings</h4>
+        <div class="dashboard-bookings">
+          <div class="w-100 d-flex headers">
+            <div class="head-booking">Reference</div>
+            <div class="head-booking">Bike</div>
+            <div class="head-booking">Owner</div>
+            <div class="head-booking">Total price</div>
+            <div class="head-booking">Check in</div>
+            <div class="head-booking">Check out</div>
+          </div>
+          <% @bookings.each do |booking| %>
+            <div class="w-100 d-flex booking-item">
+              <div class="body-booking"><%= booking.id %></div>
+              <div class="body-booking"><%= link_to booking.bike.bike_type, bike_path(booking.bike) %></div>
+              <div class="body-booking"><%= booking.bike.user.username %></div>
+              <div class="body-booking"><%= booking.total_price %> €</div>
+              <div class="body-booking"><%= booking.start_date %></div>
+              <div class="body-booking"><%= booking.end_date %></div>
+              <div class="icon"><%= link_to "✎", edit_booking_path(booking) %></div>
+              <div class="icon"><%= link_to "ⓧ", booking_path(booking), method: :delete, data: { confirm: "You are going to delete this booking.\nContinue ?" } %></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="dashboard-card">
+        <h4>Your bikes</h4>
+        <div class="dashboard-bikes">
+          <div class="w-100 d-flex headers">
+            <div class="head-bike">Type</div>
+            <div class="head-bike">Size</div>
+            <div class="head-bike">Electric</div>
+            <div class="head-bike">Gender</div>
+            <div class="head-bike">€/day</div>
+            <div class="head-bike-location">Location</div>
+          </div>
+          <% @bikes.each do |bike| %>
+            <div class="w-100 bike-item">
+              <div class="d-flex flex-column">
+                <div class="d-flex">
+                  <div class="body-bike"><%= bike.bike_type %></div>
+                  <div class="body-bike"><%= bike.price_per_day %> €</div>
+                  <div class="body-bike"><%= bike.size ? bike.size : "/" %></div>
+                  <div class="body-bike"><%= bike.electric ? bike.electric : "/" %></div>
+                  <div class="body-bike"><%= bike.gender ? bike.gender : "/" %></div>
+                  <div class="body-bike-location"><%= bike.location %></div>
+                </div>
+              <div class="description"><span class="head-description">Description :</span><br><%= bike.description %></div>
+              <div class="d-flex justify-content-end">
+                <div class="icon"><%= link_to bike_path(bike) do %>
+                  <i class="far fa-eye"></i>
+                <% end %>
+                </div>
+                <div class="icon"><%= link_to "✎", edit_bike_path(bike) %></div>
+                <div class="icon"><%= link_to "ⓧ", bike_path(bike), method: :delete, data: { confirm: "You are going to delete this bike.\nContinue ?" } %></div>
+              </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
