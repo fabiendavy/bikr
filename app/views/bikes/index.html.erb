@@ -24,18 +24,5 @@
     </div>
   </div>
 
-
-  <div class="container">
-
-    <div class="row justify-content-center">
-
-      <% categories = Bike::BIKE_TYPES.sample(4) %>
-        <% categories.each do |categorie| %>
-          <div class="card-category w-100" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/featured/?<%= categorie %>)">
-            <%= categorie %>
-          </div>
-        <% end %>
-    </div>
-  </div>
 </body>
 
