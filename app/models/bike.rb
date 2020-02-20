@@ -6,13 +6,13 @@ class Bike < ApplicationRecord
 
   geocoded_by :location
 
-  # validations
   # BIKE_TYPES = ["Mountain", "Road", "Time Trial", "Gravel Cyclocross", "BMX", "Single Speed", "Cruiser", "Urban", "Hybrid", "Touring", "Other"]
   BIKE_TYPES = ["Trail", "Road", "BMX", "Urban", "Cruiser"]
   BIKE_SIZE = ["S", "M", "L"]
   BIKE_GENDER = ["Female", "Male"]
   BIKE_POWER = ["Your legs", "Electric"]
 
+  # validations
   validates :bike_type, presence: true, inclusion: { in: BIKE_TYPES }
   validates :location, presence: true
   validates :price_per_day, presence: true
