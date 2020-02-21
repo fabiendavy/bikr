@@ -1,10 +1,10 @@
 <div class="page-container">
   <div class="row justify-content-around pt-5">
 
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-6 cl-image">
       <!-- <div class="w-75"> -->
         <% if @bike.photo.attached? %>
-          <%= cl_image_tag @bike.photo.key, height: 500, class: "rounded w-100 shadow", crop: :fill %>
+          <%= cl_image_tag @bike.photo.key, class: "rounded shadow" %>
         <% else %>
           <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded w-100 shadow", height: "500px" %>
         <% end %>
