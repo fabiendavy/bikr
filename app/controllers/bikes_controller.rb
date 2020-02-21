@@ -63,6 +63,8 @@ class BikesController < ApplicationController
 
   def destroy
     authorize @bike
+    @bike.destroy
+    redirect_to my_dashboard_path
   end
 
   private
