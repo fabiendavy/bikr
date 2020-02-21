@@ -25,7 +25,7 @@
               <div class="body-booking"><%= booking.start_date %></div>
               <div class="body-booking"><%= booking.end_date %></div>
               <div class="icon"><%= link_to "✎", edit_booking_path(booking) %></div>
-              <div class="icon"><%= link_to "ⓧ", booking_path(booking), method: :delete, data: { confirm: "You are going to delete this booking.\nContinue ?" } %></div>
+              <div class="icon"><%= link_to "ⓧ", booking_path(booking), method: :delete, remote: true %></div>
             </div>
           <% end %>
         </div>
@@ -60,7 +60,7 @@
                 <% end %>
                 </div>
                 <div class="icon"><%= link_to "✎", edit_bike_path(bike) %></div>
-                <div class="icon"><%= link_to "ⓧ", bike_path(bike), method: :delete, data: { confirm: "You are going to delete this bike.\nContinue ?" } %></div>
+                <div class="icon"><%= link_to "ⓧ", bike_path(bike), method: :delete, remote: true %></div>
               </div>
               </div>
             </div>

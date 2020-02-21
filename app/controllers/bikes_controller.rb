@@ -54,6 +54,7 @@ class BikesController < ApplicationController
   end
 
   def update
+    authorize @bike
     if @bike.update(bike_params)
       redirect_to bike_path(@bike)
     else
