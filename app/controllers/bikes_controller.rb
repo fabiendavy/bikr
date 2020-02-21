@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :results, :show]
-  before_action :set_bike, only: [:show, :edit, :destroy, :update]
+  # before_action :set_bike, only: [:show, :edit, :destroy, :update]
 
   def index
     @bikes = policy_scope(Bike)
