@@ -3,7 +3,7 @@ class Bike < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_one_attached :photo
-  
+
   include PgSearch::Model
   pg_search_scope :bike_search,
   against: [ :location, :bike_type, :size, :electric ],
@@ -13,7 +13,7 @@ class Bike < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
-  
+
   geocoded_by :location
 
   # BIKE_TYPES = ["Mountain", "Road", "Time Trial", "Gravel Cyclocross", "BMX", "Single Speed", "Cruiser", "Urban", "Hybrid", "Touring", "Other"]
@@ -24,7 +24,7 @@ class Bike < ApplicationRecord
 
   # validations
   validates :bike_type, presence: true, inclusion: { in: BIKE_TYPES }
-  validates :location, presence: true
+  validates :location, :photo, presence: true
   validates :price_per_day, presence: true
   validates :description, presence: true, length: { minimum: 5 }
 
