@@ -1,2 +1,37 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<div class="page-container">
+  <div class="row justify-content-around pt-5">
+
+    <div class="col-sm-12 col-md-6">
+      <!-- <div class="w-75"> -->
+        <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded w-100", height: "500px" %>
+      <!-- </div> -->
+    </div>
+
+
+    <div class="col-sm-12 col-md-4">
+      <div class="div d-flex justify-content-between">
+        <h1><%= @bike.bike_type %></h1>
+        <h1><%= @bike.price_per_day %>€</h1>
+      </div>
+      <p><%= @bike.description %></p>
+      <p class="attribute"><%= @bike.electric %></p><p class="attribute"><%= @bike.gender %></p><p class="attribute"><%= @bike.size %></p>
+      <%= simple_form_for @booking do |f|  %>
+      <div class="form-row">
+        <div class="col">
+          <%= f.input :start_date, label: false, placeholder: "rent date", as: :string, input_html: {class: "datepicker"} %>
+        </div>
+        <div class="col">
+          <%= f.input :end_date, label: false, placeholder: "return date", as: :string, input_html: {class: "datepicker"} %>
+        </div>
+        <div class="col">
+        <% if current_user %>
+          <%= f.button :submit, class: "btn add-bike-btn", id: "booking_button" %>
+        <% else %>
+          <%= link_to "login", new_user_session_path, class: "btn add-bike-btn" %>
+        <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
