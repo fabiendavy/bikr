@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :results, :show]
-  before_action :set_bike, only: [:show, :edit, :destroy, :update]
+  # before_action :set_bike, only: [:show, :edit, :destroy, :update]
 
   def index
     @bikes = policy_scope(Bike)
@@ -75,6 +75,7 @@ class BikesController < ApplicationController
   end
 
   def bike_params
-    params.require(:bike).permit(:bike_type, :description, :location, :price_per_day)
+    params.require(:bike).permit(:bike_type, :description, :location,
+      :price_per_day, :size, :electric, :gender, :photo)
   end
 end
