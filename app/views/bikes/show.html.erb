@@ -26,7 +26,7 @@
         <div class="col">
         <% if current_user %>
           <%= f.button :submit, class: "btn add-bike-btn", id: "booking_button" %>
-        <% else %>  
+        <% else %>
           <%= link_to "login", new_user_session_path, class: "btn add-bike-btn" %>
         <% end %>
         </div>
@@ -48,7 +48,7 @@
         <p></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= link_to "Close", my_dashboard_path, class: "btn add-bike-btn" %>
       </div>
     </div>
   </div>
