@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :edit, :destroy]
+  before_action :set_bike, only: [:update, :edit]
+
   def index
     @bookings = policy_scope(Booking).where(user: current_user)
   end
@@ -34,8 +36,10 @@ class BookingsController < ApplicationController
   end
 
   def update
+    authorize @booking
+    @booking.total_price = Bike.find(Booking.find(params[:id]).bike_id).price_per_day * (@booking.end_date - @booking.start_date + 1)
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking)
+      redirect_to my_dashboard_path(@booking)
     else
       render "bikes/show"
     end
@@ -45,6 +49,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_bike
+    @bike = Bike.find(Booking.find(params[:id]).bike_id)
   end
 
   def booking_params
