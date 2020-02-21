@@ -13,8 +13,6 @@
         <h1><%= @bike.bike_type %></h1>
         <h1><%= @bike.price_per_day %>€</h1>
       </div>
-      <p class="my-3"><i class="fas fa-map-marker-alt mr-2"></i><%= @bike.location %></p>
-      <p class="my-3"><i class="fas fa-user-tag mr-2"></i><%= @bike.user.username %> | <%= @bike.user.email %></p>
       <p><%= @bike.description %></p>
       <p class="attribute"><%= @bike.electric %></p><p class="attribute"><%= @bike.gender %></p><p class="attribute"><%= @bike.size %></p>
       <%= simple_form_for([@bike, @booking], remote: true) do |f|  %>
