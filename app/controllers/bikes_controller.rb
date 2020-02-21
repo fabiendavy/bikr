@@ -51,7 +51,6 @@ class BikesController < ApplicationController
 
   def edit
     authorize @bike
-    set_bike
   end
 
   def update
