@@ -54,7 +54,7 @@ class BikesController < ApplicationController
   def update
     authorize @bike
     if @bike.update(bike_params_update)
-      redirect_to my_dashboard_path(@bike)
+      redirect_to my_dashboard_path
     else
       render :edit
     end

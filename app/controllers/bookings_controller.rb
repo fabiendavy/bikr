@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.total_price = Bike.find(Booking.find(params[:id]).bike_id).price_per_day * (@booking.end_date - @booking.start_date + 1)
     if @booking.update(booking_params)
-      redirect_to my_dashboard_path(@booking)
+      redirect_to my_dashboard_path
     else
       render "bikes/show"
     end
