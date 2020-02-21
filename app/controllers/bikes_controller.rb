@@ -6,17 +6,15 @@ class BikesController < ApplicationController
     @bikes = policy_scope(Bike)
 
     if params[:search].present?
-      @location = Bike.bike_search(params[:search][:location])
-      address = @location.first.location
-      redirect_to results_bikes_path(params: { address: address })
+      redirect_to results_bikes_path(params: { address: params[:search][:location] })
     else
       render :index
     end
   end
 
   def results
-    @query = params[:address]
-    @bikes = policy_scope(Bike).geocoded.near(@query, 15)
+    @location = params[:address]
+    @bikes = policy_scope(Bike).geocoded.near(@location, 15)
 
     @markers = @bikes.map do |bike|
       {
