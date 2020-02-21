@@ -3,7 +3,11 @@
 
     <div class="col-sm-12 col-md-6">
       <!-- <div class="w-75"> -->
-        <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded w-100", height: "500px" %>
+        <% if @bike.photo.attached? %>
+          <%= cl_image_tag @bike.photo.key, height: 600, width: 600, crop: :fill %>
+        <% else %>
+          <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded w-100", height: "500px" %>
+        <% end %>
       <!-- </div> -->
     </div>
 
@@ -26,7 +30,7 @@
         <div class="col">
         <% if current_user %>
           <%= f.button :submit, value: "Book now  >>", class: "btn add-bike-btn", id: "booking_button" %>
-        <% else %>  
+        <% else %>
           <%= link_to "login", new_user_session_path, class: "btn add-bike-btn" %>
         <% end %>
         </div>
