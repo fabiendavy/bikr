@@ -14,7 +14,7 @@ class Bike < ApplicationRecord
 
   # validations
   validates :bike_type, presence: true, inclusion: { in: BIKE_TYPES }
-  validates :location, presence: true
+  validates :location, :photo, presence: true
   validates :price_per_day, presence: true
   validates :description, presence: true, length: { minimum: 5 }
 
