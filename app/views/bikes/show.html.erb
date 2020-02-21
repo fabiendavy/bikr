@@ -29,7 +29,7 @@
         </div>
         <div class="col">
         <% if current_user %>
-          <%= f.button :submit, value: "Book now  >>", class: "btn add-bike-btn", id: "booking_button" %>
+          <%= f.button :submit, class: "btn add-bike-btn", id: "booking_button" %>
         <% else %>
           <%= link_to "login", new_user_session_path, class: "btn add-bike-btn" %>
         <% end %>
