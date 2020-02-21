@@ -4,10 +4,10 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
-import { setBannerHeight } from './home.js'
+// import { setBannerHeight } from './home.js'
 
-document.addEventListener('turbolinks:load', () => {
-  if (document.querySelector('.banner')) {
-    setBannerHeight();
-  }
-});
+// document.addEventListener('turbolinks:load', () => {
+//   if (document.querySelector('.banner')) {
+//     setBannerHeight();
+//   }
+// });

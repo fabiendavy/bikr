@@ -13,7 +13,7 @@
       <% if user_signed_in? %>
         <li class="nav-item mx-2">
           <% if policy(Bike).create? %>
-            <%= link_to "Add bike", new_bike_path, class: "nav-link add-bike-btn" %>
+            <%= link_to "Add bike", new_bike_path, class: "nav-link add-bike-btn", data: { turbolinks: false } %>
           <% end %>
         </li>
         <li class="nav-item active mx-2">
