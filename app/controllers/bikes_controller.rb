@@ -53,8 +53,8 @@ class BikesController < ApplicationController
 
   def update
     authorize @bike
-    if @bike.update(bike_params)
-      redirect_to bike_path(@bike)
+    if @bike.update(bike_params_update)
+      redirect_to my_dashboard_path(@bike)
     else
       render :edit
     end
@@ -76,4 +76,10 @@ class BikesController < ApplicationController
     params.require(:bike).permit(:bike_type, :description, :location,
       :price_per_day, :size, :electric, :gender, :photo)
   end
+
+  def bike_params_update
+    params.require(:bike).permit(:bike_type, :description, :location,
+      :price_per_day, :size, :electric, :gender)
+  end
+
 end

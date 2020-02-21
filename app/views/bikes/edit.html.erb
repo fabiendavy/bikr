@@ -30,6 +30,9 @@
               <div class="mb-4">
                   <%= f.input :description, label: false, placeholder: "Describe your bike", as: :text %>
               </div>
+              <div class="photo-upload mb-4">
+                <%= f.input :photo, as: :file, label: "Add a photo" %>
+              </div>
               <%= f.submit "Update bike details", class: "red-btn" %>
           </div>
       <% end %>
