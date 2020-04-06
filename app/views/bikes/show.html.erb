@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-md-8">
       <div class="cl-image d-flex justify-content-center">
         <% if @bike.photo.attached? %>
-          <%= cl_image_tag @bike.photo.key, class: "rounded shadow" %>
+          <%= cl_image_tag("https://res.cloudinary.com/fabdv/image/upload/v1582298881/Bikr/#{@bike.photo.key}", class: "rounded shadow")  %>
         <% else %>
           <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)", class: "rounded w-100 shadow", height: "500px" %>
         <% end %>

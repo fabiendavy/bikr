@@ -14,7 +14,7 @@
           <%= link_to bike_path(bike) do %>
             <div class="card-product mb-3 ml-3">
               <% if bike.photo.attached? %>
-                <%= cl_image_tag bike.photo.key %>
+                <%= cl_image_tag("https://res.cloudinary.com/fabdv/image/upload/v1582298881/Bikr/#{bike.photo.key}") %>
               <% else %>
                 <%= image_tag "https://source.unsplash.com/featured/?bike(160 kB)" %>
               <% end %>
